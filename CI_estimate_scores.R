@@ -43,7 +43,7 @@ group.data.reef = group.data.reef %>% group_by(REEF,DEPTH) %>%
 ## Bind the next years data onto the current row  to faciltate    ##
 ## predictions based on fitting gompertz model                    ##
 ####################################################################
-coral.reef = group.data.reef %>% inner_join(group.data.reef %>% select(REEF, DEPTH, VISIT_NO,Date,HC,SC,MA,Acr,Ohc,DISTURBANCE),
+coral.reef = group.data.reef %>% inner_join(group.data.reef %>% dplyr::select(REEF, DEPTH, VISIT_NO,Date,HC,SC,MA,Acr,Ohc,DISTURBANCE),
                                             by=c('REEF'='REEF','DEPTH'='DEPTH','nextVISIT_NO'='VISIT_NO'), suffix=c('','2'))
 coral.reef <- coral.reef %>% 
   mutate(duration.days=as.double(difftime(coral.reef$Date2, coral.reef$Date, units="days")),
@@ -164,7 +164,7 @@ change.scores1 = change.scores %>%
 ## Add spatial data to infill the NA's produced by above
 
 spatial<-change.scores1 %>% filter(!is.na(NRM_REGION)) %>%
-  select(REEF,NRM_REGION,subregion,DEPTH) %>%
+  dplyr::select(REEF,NRM_REGION,subregion,DEPTH) %>%
   distinct %>%
   mutate(DEPTH=factor(DEPTH))
 
@@ -230,7 +230,7 @@ coral = coral %>%
 ## hellinger transformed genus covers for each observation             ##
 #########################################################################
 
-hc.hel<-hc.genus %>% select(P_CODE,REEF,DEPTH,VISIT_NO,NRM_REGION,subregion, ACANTHASTREA:pb)
+hc.hel<-hc.genus %>% dplyr::select(P_CODE,REEF,DEPTH,VISIT_NO,NRM_REGION,subregion, ACANTHASTREA:pb)
 hc.hel[,7:ncol(hc.hel)]<-vegan::decostand(hc.hel[,7:ncol(hc.hel)], method="hellinger")
 
 hc.long<-hc.hel %>% group_by(P_CODE,NRM_REGION,subregion,REEF,DEPTH,VISIT_NO) %>%

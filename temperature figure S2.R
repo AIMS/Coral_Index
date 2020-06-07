@@ -18,7 +18,7 @@ temp.locations<-read.csv(file='dataRepository/temperature.lookup.csv')
 water.temp.raw<-waterTemp %>% 
   filter(!is.na(LEVEL1_AVG)) %>%
   left_join(temp.locations) %>%
-  left_join(names.lookup %>% select(REEF,NRM_REGION) %>% unique())
+  left_join(names.lookup %>% dplyr::select(REEF,NRM_REGION) %>% unique())
 
 #######################################################################################################################
 ## Climatology for DHW - mean maximum-month temp at the LOCATION eg. PANSL1, PANFL1                                   #
@@ -99,7 +99,7 @@ surrogate.summer.max=rbind(surrogates1,surrogates2)
 
 summer.max<-loc.mean.max.month %>% 
   rbind(surrogate.summer.max) %>%
-  select(-obs)
+  dplyr::select(-obs)
 
 # DHW from max.summer - this does not include the +1 adjustment used by NOAA, model estimate shrikage issue??
  DHW.logger<- location.temp %>% left_join(summer.max) %>%

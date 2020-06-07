@@ -1,13 +1,36 @@
+## The following script constitutes the main code sequencing thread for codes to
+## accompany the manuscript 'Development Of The Coral Index, A Summary Of Coral
+## Reef Resilience As A Guide For Management'
+
+## source required .csv data files from metadata record
+## doi *https://apps.aims.gov.au/metadata/view/7c6101f9-50a6-46fb-afe9-c16bd09334d0)
+## 1. download the zip from the above source
+## 2. open the zip and navigate in to the dataRepository folder
+## 3. extract this folder (and all its contents) to the root of the current repository
+
+## The scripts have the following dependencies.
+## coda, scales, tidyverse, lubridate, gmodels, gamlss, MuMIn, gridExtra, brms, broom, effects, gtable,grid,cowplot,mgcv,ggplot2
+
+library(coda)
+library(scales)
+library(tidyverse)
+library(lubridate)
+library(gmodels)
+library(gamlss)
+library(MuMIn)
+library(gridExtra)
+library(brms)
+library(broom)
+library(effects)
+library(gtable)
+library(grid)
+library(cowplot)
+library(mgcv)
+
 ## Preparations
 if(!dir.exists('output')) dir.create('output')
-# source required .csv data files from metadata record
-# doi###########
 
-#required Packages
-#coda, scales, tidyverse, lubridate, gmodels, scales, gamlss, MuMIn, gridExtra, brms, broom, effects, gtable,grid,cowplot,mgcv,ggplot2
-
-
-source('CI_EstimateScores.R')
+source('CI_estimate_scores.R')
 #################################################################
 # read in observed data from which indicator values are estimated 
 #   all.reef.csv

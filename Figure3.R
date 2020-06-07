@@ -3,7 +3,7 @@ library(tidyverse)
 library(cowplot) #plot_grid
 library(gridExtra)
 library(grid)
-load(file='coral.RData') 
+load(file='output/coral.RData') 
 
 #consistent plotting parameters
 theme_a<-function(base_size=7){
