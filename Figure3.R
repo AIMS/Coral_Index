@@ -253,14 +253,13 @@ ggsave('output/Figure3 1column.png', width=90, height=150, units="mm", dpi=600,
                          left=grid.text(label = 'Change in score', rot=90, gp=gpar(fontsize=7))))
 
 ggsave('output/Figure3 1column.pdf', width=90, height=150, units="mm", dpi=600,
-       plot=grid.arrange(chl.2.pAC,tss.2.pAC,
-                         chl.5.pAC,tss.5.pAC,
-                         nrow=2))
+       plot=grid.arrange(top_row, mid_row, bot_row, nrow=3, 
+                         left=grid.text(label = 'Change in score', rot=90, gp=gpar(fontsize=7))))
 
 ggsave('output/Figure3 1column.jpg', width=90, height=150, units="mm", dpi=600,
-       plot=grid.arrange(chl.2.pAC,tss.2.pAC,
-                         chl.5.pAC,tss.5.pAC,
-                         nrow=2))
+       plot=grid.arrange(top_row, mid_row, bot_row, nrow=3, 
+                         left=grid.text(label = 'Change in score', rot=90, gp=gpar(fontsize=7))))
+
 ####***********************************************************************************
 
 
