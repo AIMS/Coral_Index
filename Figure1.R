@@ -14,7 +14,7 @@ theme_a<-function(base_size=7){
           #axis.title.x=element_blank(),
           plot.margin=unit(c(0.5,0.5,0,0.5),"lines"),
           panel.spacing=unit(c(0),"lines"),
-          axis.title.y=element_blank(),
+         # axis.title.y=element_blank(),
           axis.text.x=element_text(size=7),
           axis.text.y=element_text(size=7),
           plot.title = element_text(hjust=0.5, size=rel(1)),
@@ -648,7 +648,7 @@ tss.2.pAC <- ggplot(newdata.pAC.t2, aes(y=fit, x=tss)) +
   scale_x_continuous(xlabs[2])+
   scale_y_continuous('Proportion Acroporidae')+
   ggtitle("2 m depth")+
-  theme_classic(base_size=9)+
+  theme_a()+
   theme(plot.title = element_text(hjust=0.5, size=rel(1),vjust=-0.5))+
   
   annotate(geom='text', x=3,y=0.95, label='b)', size=Size, hjust=-0.5, vjust=0)+

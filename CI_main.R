@@ -202,5 +202,5 @@ source('temperature figure S2.R')
 #                 Year - the water Year (October 1 to September 31) as at September 31.
 #                 discharge.c.annual - combined annual discharge from gauged major rivers discharging into the subregion
 #
-# Output = Figure 4.
+# Output = FigureS2.
 ###########################################################################################
